@@ -76,6 +76,9 @@ Aggregate scores across all 500 evaluated samples per model (470 for the fine-tu
 | Avg. latency (s) | 7.31 | 3.29 | 3.91 | **0.93** |
 | Throughput (tokens/s) | 77.6 | 97.3 | 89.0 | **445.9** |
 
+<img width="1484" height="733" alt="compare_composite_bar" src="https://github.com/user-attachments/assets/7a6e7216-6dd4-4122-9665-5976753f0dd1" />
+
+
 **Key findings:**
 
 - QLoRA fine-tuning improved Qwen3-8B's composite score from 0.586 to 0.651 and roughly doubled judge-rated completeness and clarity, while cutting average latency by over 4x and increasing throughput by ~5x — largely because the fine-tuned model no longer wastes tokens on the verbose reasoning traces that the base model produces.
@@ -87,10 +90,10 @@ Full per-sample results are available in [`all_models_results.csv`](./all_models
 
 ## Tech stack
 
-- **Inference:** Modal Labs (L40S GPUs) for benchmarking, Kaggle (T4×2) for fine-tuning
+- **Inference:** Modal Lab's L40S GPUs for benchmarking, A100-40 Gb GPU for fine-tuning
 - **Fine-tuning:** QLoRA (4-bit, r=16, alpha=32) via SFTTrainer
 - **Evaluation:** LLM-as-judge (Mercury-2 / Inception API), BERTScore, ROUGE-L, custom JSON schema validators
-- **Dataset:** Hybrid synthetic generation (Qwen2.5-7B-Instruct, Gemma-3) + real Jira seed data
+- **Dataset:** Hybrid synthetic generation (Mercury-2, Gemma-3) + real Jira seed data
 
 ## Links
 
