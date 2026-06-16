@@ -1,0 +1,27 @@
+{
+  "dataset_name": "PM-SFT-Qwen2",
+  "version": "1.0",
+  "total_examples": 1224,
+  "splits": {
+    "train": 979,
+    "val": 122,
+    "test": 123
+  },
+  "task_types": [
+    "task_design",
+    "task_allocation",
+    "resource_planning",
+    "sprint_planning"
+  ],
+  "format": "qwen2-chat (ChatML)",
+  "base_model_target": "Qwen/Qwen2-1.7B",
+  "generator_model": "mercury-2",
+  "generator_api": "Inception Labs (api.inceptionlabs.ai)",
+  "real_jira_ratio": 0.3,
+  "rate_limit_used": "95/min",
+  "source_datasets": [
+    "Apache Kafka Jira (Apache 2.0)",
+    "Spring Framework Jira (Apache 2.0)",
+    "Synthetic (Inception API-generated)"
+  ]
+}
